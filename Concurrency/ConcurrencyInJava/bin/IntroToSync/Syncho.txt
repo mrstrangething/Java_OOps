@@ -1,0 +1,71 @@
+-Synchronization in Concurrent Programming:
+
+Introduction to Synchronization Problems
+
+The primary issue in concurrent programming is managing access to shared resources or data.
+The class focuses on understanding synchronization problems that occur when multiple threads access shared data:
+
+    Critical Section: A segment of code where shared resources are accessed .
+    Race Condition: Occurs when multiple threads compete for the same resources leading to unpredictable results .
+    Preemption: Happens when a thread in a critical section is interrupted, causing synchronization issues .
+
+Solutions to Synchronization Problems
+
+Java provides several mechanisms to address synchronization problems in multi-threaded applications:
+Synchronized Methods and Blocks
+
+    Synchronized Block: Ensures that only one thread can execute a block of code that manipulates shared data at a time .
+    Synchronized Method: Only one thread can access a synchronized method of an object at a time .
+
+Locks and Mutex
+
+    Mutex (Mutual Exclusion): Uses locks to prevent multiple threads from entering the critical section simultaneously .
+
+Semaphores
+
+    Introduced to handle more complex scenarios like the producer-consumer problem. Semaphores allow multiple threads to access limited resources .
+        Producer-Consumer Problem: This problem illustrates the need for synchronization. Using semaphores, 
+        producers and consumers alternate access to a buffer, ensuring data integrity .
+
+Concurrent Collections
+
+    Java provides concurrent data structures like ConcurrentHashMap that manage synchronization internally, allowing threads to access without additional locks .
+
+Practical Implementation and Homework
+Practical Example
+
+A typical setup involves:
+
+    Producer: Adds items to the store.
+    Consumer: Removes items from the store.
+    Using semaphores to control access based on resource availability .
+
+Implementation in Java
+
+    Semaphore Implementation:
+
+    Semaphore producerSemaphore = new Semaphore(5); // Allow up to 5 producer threads
+    Semaphore consumerSemaphore = new Semaphore(0); // Consumers wait until there is something to consume
+
+    Producer Threads:
+
+    for (int i = 0; i < 8; i++) {
+        Producer producer = new Producer(store, producerSemaphore, consumerSemaphore);
+        new Thread(producer).start();
+    }
+
+    Consumer Threads:
+
+    for (int i = 0; i < 20; i++) {
+        Consumer consumer = new Consumer(store, producerSemaphore, consumerSemaphore);
+        new Thread(consumer).start();
+    }
+
+Homework
+
+    Simulate and reason out how semaphores control access and manage the execution flow among producers and consumers .
+    Explore using synchronized methods for static methods and understand the concepts of class-level and object-level locking .
+
+Conclusion
+
+Understanding and correctly implementing synchronization is vital in multi-threaded programming to avoid issues like race conditions and ensure data integrity when accessing shared resources.
