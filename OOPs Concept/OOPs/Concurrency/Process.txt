@@ -1,0 +1,135 @@
+Q1. What is the processor?
+ - A processor, also known as a central processing unit (CPU), is the hardware component of a computer that executes instructions from programs.
+ It performs basic arithmetic, logic, control, and input/output operations specified by the instructions. 
+ In the context of concurrency, a processor can execute multiple threads or processes, depending on its architecture and the operating system's scheduling.
+
+ Q2. what is process?
+ - A process is an instance of a program in execution. It contains the program code and its current activity, including the program counter, registers, and variables. 
+ Each process operates independently and has its own memory space. 
+ In the context of concurrency, multiple processes can run simultaneously, either on separate processors or through time-sharing on a single processor.
+
+ Q3. what is threads?
+ - Threads are a fundamental concept in computer programming and operating systems. 
+ A thread is the smallest unit of execution within a process. 
+ A process can have multiple threads, and these threads share the same memory space and resources of the process, such as open files and network connections.
+
+Key Points About Threads:
+
+Lightweight: Threads are more lightweight compared to processes because they share the same memory and resources.
+Concurrency: Threads allow a program to perform multiple tasks concurrently. For example, a web browser can use threads to load a webpage while allowing the user to scroll.
+Shared Memory: Threads within the same process can communicate more easily since they share the same memory space.
+Independent Execution: Each thread runs independently, so if one thread is blocked (e.g., waiting for I/O), other threads can continue executing.
+Example in Python:
+
+Q4. what is Concurrency?
+- Concurrency refers to the ability of a program to execute multiple tasks or operations simultaneously or in overlapping time periods. 
+It doesn't necessarily mean that tasks are running at the exact same time (parallelism), but rather that the program can manage multiple tasks in progress.
+
+For example, in a single-core processor, concurrency is achieved by quickly switching between tasks (time slicing), giving the illusion of simultaneous execution.
+On multi-core processors, concurrency can involve true parallelism, where tasks run on different cores.
+
+Key Concepts of Concurrency:
+
+Multithreading: Using multiple threads within a single process to perform tasks concurrently.
+Asynchronous Programming: Tasks are executed asynchronously, allowing the program to continue working while waiting for slower operations (e.g., I/O).
+Parallelism: A subset of concurrency where tasks are executed simultaneously on multiple processors or cores.
+
+Q5. what is Parallelism?
+
+- Parallelism is a subset of concurrency where multiple tasks are executed simultaneously, typically on multiple processors or cores. 
+Unlike concurrency, which focuses on managing multiple tasks in progress (even if they aren't running at the exact same time), parallelism involves true simultaneous execution.
+
+Key Characteristics of Parallelism:
+
+Simultaneous Execution: Tasks are executed at the same time on different processors or cores.
+Hardware Dependent: Requires multi-core or multi-processor systems to achieve true parallelism.
+Performance Boost: Often used to speed up computation-heavy tasks by dividing the workload across multiple cores
+
+Q6. How to create a thread?
+
+- Threads can be created in various programming languages using their respective threading libraries or frameworks. 
+Example in Java:
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.start(); // Start the thread
+    }
+}
+
+
+Q7. What is Thread Priority?
+
+- Thread priority in programming determines the order in which threads are scheduled for execution by the operating system or runtime environment. 
+Each thread is assigned a priority value, and threads with higher priority are generally executed before threads with lower priority. However, thread priority is not a guarantee of execution order, as it depends on the thread scheduler's implementation.
+
+Key Points About Thread Priority:
+
+1. Priority Levels: Most programming languages and operating systems provide a range of priority levels (e.g., in Java, thread priorities range from 1 (MIN_PRIORITY) to 10 (MAX_PRIORITY), with 5 being the default (NORM_PRIORITY)).
+2. Preemptive Scheduling: In some systems, higher-priority threads can preempt lower-priority threads, meaning they can interrupt and take over execution.
+3. Fairness: Thread priority should be used judiciously to avoid starvation, where lower-priority threads never get a chance to execute.
+4. Platform Dependency: The effect of thread priority can vary across different operating systems and JVM implementations.
+
+Example in Java:
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " is running with priority " + Thread.currentThread().getPriority());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread thread1 = new MyThread();
+        MyThread thread2 = new MyThread();
+
+        thread1.setPriority(Thread.MIN_PRIORITY); // Set priority to 1
+        thread2.setPriority(Thread.MAX_PRIORITY); // Set priority to 10
+
+        thread1.start();
+        thread2.start();
+    }
+}
+
+
+In Java, Executors is a utility class in the java.util.concurrent package that provides factory methods for creating and managing thread pools. It simplifies the process of managing threads by abstracting away the complexity of manually creating and managing individual threads.
+
+Why use Executors?
+Thread Pooling: Instead of creating a new thread for every task, Executors reuse a pool of threads, which improves performance and resource management.
+Task Management: Executors allow you to submit tasks (e.g., Runnable or Callable) for execution without worrying about thread lifecycle.
+Concurrency Simplification: They provide higher-level APIs to manage concurrency, making it easier to write multithreaded code.
+Common Executors Methods
+Here are some commonly used factory methods provided by the Executors class:
+
+newFixedThreadPool(int nThreads):
+
+Creates a thread pool with a fixed number of threads.
+Example: Useful when you know the number of threads required.
+newCachedThreadPool():
+
+Creates a thread pool with an unbounded number of threads, reusing idle threads when possible.
+Example: Useful for short-lived tasks.
+newSingleThreadExecutor():
+
+Creates a single-threaded executor.
+Example: Useful when tasks need to be executed sequentially.
+newScheduledThreadPool(int corePoolSize):
+
+Creates a thread pool that can schedule tasks to run after a delay or periodically.
+Example: Useful for tasks like periodic updates or reminders.
+Example Code
+Here’s an example of using an Executor to manage a fixed thread pool:
+
+
+
+Output Example
+Key Points
+Executors manage thread creation and reuse, reducing overhead.
+Always call shutdown() on an ExecutorService to release resources.
+Use Callable instead of Runnable if you need to return a result or handle exceptions.

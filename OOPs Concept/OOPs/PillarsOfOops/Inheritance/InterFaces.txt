@@ -1,0 +1,34 @@
+// Define an interface
+interface Animal {
+    void eat(); // Abstract method declared
+    void sleep(); // Abstract method declared
+}
+
+// Implement the interface in a class
+class Dog implements Animal {
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating.");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Dog is sleeping.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        myDog.eat();
+        myDog.sleep();
+    }
+}
+
+** To achieve multiple level inheritance and Abstraction we use Interfaces.
+
+What is interface?
+
+Interfaces - it a set of abstract method you would want your class to implement. these method are public and abstract by default.
+don't need to explicitly use keyword abstract. any class implementing interface will needs to provide implementation of those method.
+To declare and use interface use -implements- keyword and interface for class

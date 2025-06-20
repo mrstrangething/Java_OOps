@@ -1,0 +1,17 @@
+The Four Pillars of OOP (Object-Oriented Programming):
+
+1. **Encapsulation**:
+    - Encapsulation is the concept of wrapping data (variables) and methods (functions) together as a single unit.
+    - It restricts direct access to some of an object's components, which is a means of preventing accidental interference and misuse of the data.
+
+2. **Abstraction**:
+    - Abstraction is the process of hiding the implementation details and showing only the functionality to the user.
+    - It helps in reducing programming complexity and effort.
+
+3. **Inheritance**:
+    - Inheritance is a mechanism where one class acquires the properties and behaviors of another class.
+    - It promotes code reuse and establishes a parent-child relationship between classes.
+
+4. **Polymorphism**:
+    - Polymorphism allows methods to do different things based on the object it is acting upon.
+    - It can be achieved through method overloading (compile-time polymorphism) and method overriding (runtime polymorphism).

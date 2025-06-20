@@ -1,0 +1,47 @@
+
+Access modifiers in Java control the visibility and accessibility of classes, methods, and variables. 
+They determine where a particular member can be accessed from. Here’s a breakdown of the access modifiers used in your Example class:
+
+1. public
+Scope: Accessible from anywhere in the program, including other packages.
+Example in your code:
+publicVar can be accessed from any class, even if it's in a different package.
+
+2. protected
+Scope: Accessible within the same package and by subclasses (even if the subclass is in a different package).
+Example in your code:
+protectedVar can be accessed by other classes in the same package or by subclasses of Example.
+
+3. Default (No Modifier)
+Scope: Accessible only within the same package. This is also called "package-private."
+Example in your code:
+defaultVar is accessible only to other classes in the AccessModifier package.
+
+4. private
+Scope: Accessible only within the same class.
+Example in your code:
+privateVar can only be accessed inside the Example class. It is not visible to other classes, even in the same package.
+Example of Access in the display() Method
+The display() method demonstrates how all these variables are accessible within the same class:
+
+Key Notes:
+Use public for members that need to be accessed globally.
+Use protected for members that should be accessible to subclasses or within the same package.
+Use default (no modifier) for package-level access.
+Use private for members that should only be used within the class itself.
+
+package AccessModifier;
+
+public class Example {
+    public int publicVar = 1;       // Accessible everywhere
+    protected int protectedVar = 2; // Accessible in the same package and subclasses
+    int defaultVar = 3;             // Accessible in the same package
+    private int privateVar = 4;     // Accessible only within this class
+
+    public void display() {
+        System.out.println("Public: " + publicVar);
+        System.out.println("Protected: " + protectedVar);
+        System.out.println("Default: " + defaultVar);
+        System.out.println("Private: " + privateVar);
+    }
+}

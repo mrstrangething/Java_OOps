@@ -1,0 +1,51 @@
+Q. what is Threads-
+
+Threads are the smallest unit of a process that can be scheduled and executed independently. 
+In Java, threads allow a program to perform multiple tasks concurrently, enabling better utilization of CPU resources.
+
+Key points about threads:
+1. A thread is a lightweight subprocess.
+2. Threads share the same memory space within a process.
+3. Java provides the `Thread` class and the `Runnable` interface to create and manage threads.
+
+Example of creating a thread in Java:
+
+
+Q. what is Runnable?
+
+-In Java, Runnable is a functional interface that represents a task that can be executed by a thread.
+It is part of the java.lang package and contains a single abstract method:
+
+When you implement the Runnable interface, you define the logic of the task inside the run() method.
+This task can then be executed by a thread.
+
+Q. Why Use Runnable?
+
+Separation of Concerns: By implementing Runnable, you separate the task logic from the thread management.
+Flexibility: A class implementing Runnable can extend another class, as Java does not allow multiple inheritance.
+Reusability: The same Runnable instance can be executed by multiple threads.
+Example
+Here’s an example of creating and running a thread using Runnable:
+
+Key Points
+The run() method does not return a value or accept arguments.
+void run();
+
+To execute the task, you must pass the Runnable instance to a Thread object and call start() on the thread.
+The start() method creates a new thread and invokes the run() method internally.
+
+
+class MyTask implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("Task is running in thread: " + Thread.currentThread().getName());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyTask task = new MyTask(); // Create a Runnable instance
+        Thread thread = new Thread(task); // Pass it to a Thread
+        thread.start(); // Start the thread
+    }
+}

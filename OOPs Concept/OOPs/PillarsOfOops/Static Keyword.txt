@@ -1,0 +1,39 @@
+Q. what is static and why use ?
+
+The static keyword is used in many programming languages (like Java, C#, and C++) to define members (variables, methods, blocks, or nested classes) that belong to the class rather than any specific instance of the class.
+Here's a breakdown of what it means and why it's useful:
+
+What is the static keyword?
+
+Class-Level Association:
+
+When a member is declared as static, it is associated with the class itself, not with any object of the class.
+This means you can access it without creating an instance of the class.
+
+Shared Across All Instances:
+
+A static member is shared among all instances of the class. If one instance modifies a static variable, the change is reflected across all instances.
+Memory Management:
+
+Static members are loaded into memory once when the class is loaded, making them efficient for shared data or utility methods.
+Why use the static keyword?
+Utility Methods:
+
+Methods that don't depend on instance variables can be made static.
+For example, Math utility methods like Math.sqrt() in Java are static because they don't require an object to perform their operations.
+Shared Data:
+
+Use static variables for data that should be shared across all instances of a class, like a counter or configuration settings.
+Global Access:
+
+Static members can be accessed globally using the class name, making them useful for constants or global configurations.
+Memory Efficiency:
+
+Since static members are loaded once, they save memory when used for shared data or methods.
+
+Key Points to Remember-
+
+Static Variables: Shared across all instances of the class.
+Static Methods: Can only access other static members (variables or methods) directly.
+Static Blocks: Used for static initialization (executed when the class is loaded).
+Static Classes: Nested classes can be declared static to make them independent of the outer class

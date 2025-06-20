@@ -1,0 +1,44 @@
+What is Abstract
+Abstract in object-oriented programming refers to the concept of hiding the implementation details and showing only the essential features of an object. 
+It is achieved using abstract classes and interfaces.
+
+An abstract class is a class that cannot be instantiated and is declared using the `abstract` keyword. 
+It can have abstract methods (methods without a body) as well as concrete methods (methods with a body). 
+Abstract classes are meant to be extended by subclasses that provide implementations for the abstract methods.
+
+Example in Java:
+
+abstract class Shape {
+    // Abstract method (no body)
+    abstract void draw();
+
+    // Concrete method
+    void display() {
+        System.out.println("This is a shape.");
+    }
+}
+
+class Circle extends Shape {
+    // Providing implementation for the abstract method
+    void draw() {
+        System.out.println("Drawing a Circle.");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Shape shape = new Circle();
+        shape.draw();
+        shape.display();
+    }
+}
+
+** Abstraction is a process of hiding the implementation details and showing only the functionality to the user. 
+    It focuses on what an object does instead of how it does it. 
+
+The `abstract` keyword in Java is used to declare a class or a method as abstract. 
+- An abstract class cannot be instantiated directly.
+- An abstract method must be implemented by subclasses unless the subclass is also abstract.
+
+# It can be acheived by abstract classes/Method and Interfaces
+declration of abstract method - Abstract method (does not have a body)

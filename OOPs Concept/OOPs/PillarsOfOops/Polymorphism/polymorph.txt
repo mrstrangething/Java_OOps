@@ -1,0 +1,22 @@
+what is Polymorphism?
+Polymorphism is a core concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common superclass.
+It enables a single interface to represent different underlying forms (data types or classes). The term "polymorphism" comes from Greek, meaning "many shapes."
+
+Types of Polymorphism
+1. Compile-time Polymorphism (Method Overloading):
+
+- Achieved by defining multiple methods with the same name but different parameter lists in the same class.
+The method to be executed is determined at compile time based on the method signature.
+Example in Java:
+
+2. Runtime Polymorphism (Method Overriding):
+
+- Achieved when a subclass provides a specific implementation of a method that is already defined in its superclass.
+The method to be executed is determined at runtime based on the object's actual type.
+
+
+Why is Polymorphism Useful?
+
+Code Reusability: You can write more generic and reusable code.
+Extensibility: New classes can be added with minimal changes to existing code.
+Flexibility: You can design systems that are easier to maintain and extend.

@@ -1,0 +1,99 @@
+What is Inheritance?
+-Inheritance is a fundamental concept in object-oriented programming (OOP). It allows a class (called the child class or subclass) to inherit properties and behaviors (fields and methods) from another class (called the parent class or superclass). 
+This promotes code reuse, modularity, and a hierarchical class structure.
+
+Key Points:
+Parent Class: The class that provides the inherited properties and methods.
+Child Class: The class that inherits from the parent class and can add its own properties or override inherited ones.
+Code Reusability: Instead of rewriting code, you can extend existing functionality.
+Polymorphism: Inheritance enables polymorphism, where a child class can be treated as an instance of the parent class.
+ - it's shows parent-child relationship
+
+# keyword to use Inheritance - extends, Super 
+
+-The super keyword in object-oriented programming is used to refer to the parent (or superclass) of the current class. It allows a child class to access methods, properties, or constructors of its parent class. Here's a breakdown of its common uses:
+
+1. Access Parent Class Methods
+You can call a method from the parent class that has been overridden in the child class.
+
+Example (Java):
+
+2. Access Parent Class Properties
+If a child class has a property with the same name as the parent class, super can be used to access the parent class's version.
+
+Example (Java):
+
+3. Call Parent Class Constructor
+The super keyword can be used to call the parent class's constructor from the child class's constructor. This is especially useful for initializing inherited properties.
+
+Example (Java):
+
+Key Notes:
+super must be the first statement in a constructor if used to call the parent constructor.
+It is commonly used in languages like Java, Python, and C++ (with slight syntax differences).
+
+# Types of Inheritance:
+
+1. Single Inheritance: A child class inherits from a single parent class.
+    Example: 
+    Parent -> Child
+
+2. Multilevel Inheritance: A class inherits from a child class, making it a grandchild of the parent class.
+    Example: 
+    Grandparent -> Parent -> Child
+
+3. Hierarchical Inheritance: Multiple child classes inherit from a single parent class.
+    Example: 
+    Parent -> Child1, Child2, Child3
+
+4. Multiple Inheritance (Not supported directly in Java): A child class inherits from multiple parent classes. 
+Java achieves this using interfaces.
+
+    Example: 
+    Parent1, Parent2 -> Child, Child --> Parent (IS-A Relationship). HAS-A Relationship also exists.
+
+5. Hybrid Inheritance: A combination of two or more types of inheritance. Java supports this through interfaces.
+
+
+
+How to Achieve Inheritance in Java?
+
+To achieve inheritance in Java, you use the `extends` keyword. The child class extends the parent class, inheriting its properties and methods.
+Here's an example:
+
+Example of Single Inheritance:
+class Parent {
+    void display() {
+        System.out.println("This is the parent class.");
+    }
+}
+
+class Child extends Parent {
+    void show() {
+        System.out.println("This is the child class.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.display(); // Accessing parent class method
+        child.show();    // Accessing child class method
+    }
+}
+
+In this example:
+- The `Child` class inherits the `display` method from the `Parent` class.
+- The `Child` class also has its own method `show`.
+
+- You can also override methods from the parent class in the child class to provide specific behavior.
+
+- In Java multiple inheritance can not be achieve so we found a way to achieve it using interfaces.
+
+** To achieve multiple level inheritance we use Interfaces.
+
+What is interface?
+
+Interfaces - it a set of abstract method you would want your class to implement. these method are public and abstract by default.
+don't need to explicitly use keyword abstract. any class implementing interface will needs to provide implementation of those method.
+To declare and use interface use -implements- keyword and interface for class
